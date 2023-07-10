@@ -1,0 +1,63 @@
+<div class="formulario">
+
+
+  
+<form [formGroup]="myForm" class="row g-3">
+
+  <div class="col-md-4">
+    <label for="validationServer01" class="form-label">Nombre</label>
+    <input type="text" class="form-control"
+      [class.is-valid]="myForm.controls['nombre'].valid && myForm.controls['nombre'].touched"
+      [class.is-invalid]="myForm.controls['nombre'].invalid && myForm.controls['nombre'].touched"
+      id="validationServer01" [formControlName]="'nombre'" required>
+  </div>
+  
+
+    
+    <div class="valid-feedback" *ngIf="myForm.controls ['nombre'].valid">
+      Looks good!
+    </div>
+  
+
+
+
+
+
+
+  <div class="col-md-4">
+    <label for="validationServer02" class="form-label">Apellido</label>
+    <input type="text" class="form-control" id="validationServer02" [formControlName]="'apellido'" required>
+    <div class="valid-feedback" *ngIf="myForm.controls['apellido'].valid">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationServerUsername" class="form-label">Usuario</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend3">@</span>
+      <input type="text" class="form-control" id="validationServerUsername" [formControlName]="'usuario'" required>
+      <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="myForm.controls['usuario'].invalid">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 align-items-center">
+    <div class="col-auto">
+      <label for="inputPassword6" class="col-form-label">Password</label>
+    </div>
+    <div class="col-auto">
+      <input type="password" id="inputPassword6" class="form-control" [formControlName]="'password'" aria-labelledby="passwordHelpInline">
+    </div>
+    <div class="col-auto">
+      <span id="passwordHelpInline" class="form-text">
+        Must be 8-20 characters long.
+      </span>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit" [disabled]="myForm.invalid">Submit form</button>
+  </div>
+</form>
+</div>
